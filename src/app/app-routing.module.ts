@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
+// TODO : path sous forme de constantes + dispatchées plus proche des composants.
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: 'regression',
+    loadComponent: () => import('./analysis/pages/regression/regression.page').then( m => m.RegressionPage),
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: 'regression'
+  }
 ];
 
 @NgModule({
